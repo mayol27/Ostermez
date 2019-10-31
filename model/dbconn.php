@@ -32,6 +32,19 @@ function create_account($data)
     }
 }//end insert account employee
 
+function username_exist($data)
+{
+    $db = dbconn();
+    $sql="SELECT username FROM account WHERE username = ?";
+    $stmt=$db->prepare($sql);
+    $stmt->execute($data);
+
+    if ($stmt->rowCount()>0) 
+    {
+        echo "Username already register";
+    }
+}// end existing username
+
 function all_employee()
 {
     $db;
@@ -52,4 +65,13 @@ function all_employee()
     return $rows;
 }// end of getting data from account
 
+function getdata($data)
+{
+    $db=dbconn();
+    $sql="SELECT * FROM account WHERE id=?";
+    $stmt=$db->prepare($sql);
+    $stmt->execute($data);
+    $row=$stmt->fetch(PDO::FETCH_ASSOC);
+    return $row;
+}// end of getdata
 ?>

@@ -1,42 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="au theme template">
-    <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
+<?php include 'templates/header.php'; ?>
 
-    <!-- Title Page-->
-    <title>Ostermez</title>
-
-    <!-- Fontfaces CSS-->
-    <link href="assets/css/font-face.css" rel="stylesheet" media="all">
-    <link href="assets/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="assets/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="assets/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-
-    <!-- Bootstrap CSS-->
-    <link href="assets/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
-
-    <!-- Vendor CSS-->
-    <link href="assets/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="assets/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="assets/vendor/wow/animate.css" rel="stylesheet" media="all">
-    <link href="assets/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="assets/vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="assets/vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="assets/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
-
-    <!-- Main CSS-->
-    <link href="assets/css/theme.css" rel="stylesheet" media="all">
-
-    <!-- data table -->
-    <link rel="stylesheet" type="text/css" href="assets/css/datatables.min.css"/>
-
-</head>
+<style>
+#my_camera
+{
+    width: 320px;
+    height: 240px;
+    border: 1px solid black;
+}
+</style>
 
 <body class="animsition" style="background-color: rgb(248, 248, 248)">
     <div class="page-wrapper">
@@ -54,20 +28,32 @@
                                     <form action="" method="post" class="form-horizontal">
                                         <h3>Registration</h3>
                                         <hr>
+                                        <div class="row form-group ">
+                                            <div class="col col-md-12 d-flex justify-content-center">
+                                                <div id="my_camera" ></div>
+                                                
+                                            </div>
+                                            <br> <br>
+                                            <div class="col col-md-12 d-flex justify-content-center">
+                                                
+                                                <input class='btn btn-success' type='button' value="Take Snapshot" onClick="take_snapshot()">
+					                            <input class='btn btn-success' type='button' value="Save Snapshot" onClick="saveSnap()">
+                                            </div>
+                                        </div>
                                         <div class="row form-group">
                                             <div class="col col-md-6">
                                                 <label for="hf-email" class=" form-control-label">First Name</label>
-                                                <input type="text" name="fname" placeholder="Enter First Name..." class="form-control">
+                                                <input type="text" name="c_fname" placeholder="Enter first name" class="form-control">
                                             </div>
                                             <div class="col col-md-6">
                                                 <label for="hf-email" class=" form-control-label">Last Name</label>
-                                                <input type="text" name="lname" placeholder="Enter Last Name..." class="form-control">
+                                                <input type="text" name="c_lname" placeholder="Enter last name" class="form-control">
                                             </div>
                                         </div>
                                         <div class="row form-group">
                                             <div class="col col-md-12">
                                                 <label for="hf-password" class=" form-control-label">Phone</label>
-                                                <input type="password" name="phone" placeholder="Enter Phone Number..." class="form-control">
+                                                <input type="password" name="c_phone" placeholder="Enter Phone Number..." class="form-control">
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -119,55 +105,18 @@
             </section>
             <!-- END DATA TABLE-->
 
-            <!-- COPYRIGHT-->
-            <section class="p-t-60 p-b-20">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="copyright">
-                                <hr>
-                                <p>Copyright © 2019 Ostermez. All rights reserved.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- END COPYRIGHT-->
+            <?php include 'templates/footer.php'; ?>
+            
         </div>
 
     </div>
 
-    <!-- Jquery JS-->
-    <script src="assets/vendor/jquery-3.2.1.min.js"></script>
-    <!-- Bootstrap JS-->
-    <script src="assets/vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="assets/vendor/bootstrap-4.1/bootstrap.min.js"></script>
-    <!-- Vendor JS       -->
-    <script src="assets/vendor/slick/slick.min.js">
-    </script>
-    <script src="assets/vendor/wow/wow.min.js"></script>
-    <script src="assets/vendor/animsition/animsition.min.js"></script>
-    <script src="assets/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-    </script>
-    <script src="assets/vendor/counter-up/jquery.waypoints.min.js"></script>
-    <script src="assets/vendor/counter-up/jquery.counterup.min.js">
-    </script>
-    <script src="assets/vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="assets/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="assets/vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="assets/vendor/select2/select2.min.js">
-    </script>
+    <!-- cammera -->
+    <script type="text/javascript" src="assets/js/webcam2.min.js"></script>
+    <script src="assets/js/mycam.js"></script>
 
-    <!-- Main JS-->
-    <script src="assets/js/main.js"></script>
-
-    <!-- data table -->
-    <script type="text/javascript" src="assets/js/datatables.min.js"></script>          
-
-    <script>
-        $('.mydatatable').DataTable();
-    </script>
-
+    <?php include 'templates/script.php'; ?>
+    
 </body>
 
 </html>

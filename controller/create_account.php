@@ -1,8 +1,8 @@
 <?php
-include '../model/dbconn.php';
-
 if(isset($_POST['create']))
 {
+    include '../model/dbconn.php';
+
     $fname = ($_POST['fname']);
     $lname = ($_POST['lname']);
     $phone = ($_POST['phone']);
@@ -11,11 +11,13 @@ if(isset($_POST['create']))
     $act_type = ($_POST['act_type']);
     $status = ('Active');
 
-    if(empty($fname) || empty($lname) || empty($phone) || empty($username) || empty($act_type))
-    // if(empty($fname))
+    if(empty($fname) || empty($lname) || empty($phone) || empty($username) || empty($_POST[$act_type]))
     {
         header("location:../view/create_account.php?signup=empty&f=$fname&l=$lname&p=$phone&u=$username&a=$act_type");
-        // exit();
+        exit();
+    }
+    elseif (condition) {
+        # code...
     }
     // // else
     // if(empty($lname))

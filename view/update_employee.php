@@ -1,3 +1,8 @@
+<?php
+include '../model/dbconn.php';
+$update=getdata(array($_GET['id']));
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -136,21 +141,21 @@
                                         <div class="row form-group">
                                             <div class="col col-md-12">
                                                 <label  class=" form-control-label">First Name</label>
-                                                <input type="text" name="fname" placeholder="Enter first name" class="form-control">
+                                                <input type="text" name="fname" value="<?php echo $update['fname']?>" placeholder="Enter first name" class="form-control">
                                             </div>
                                         </div>
                                         <!-- lname -->
                                         <div class="row form-group">
                                             <div class="col col-md-12">
                                                 <label  class=" form-control-label">Last Name</label>
-                                                <input type="text" name="lname" placeholder="Enter last name" class="form-control">
+                                                <input type="text" name="lname" value="<?php echo $update['lname']?>" placeholder="Enter last name" class="form-control">
                                             </div>
                                         </div>
                                         <!-- phone -->
                                         <div class="row form-group">
                                             <div class="col col-md-12">
                                                 <label class=" form-control-label">Phone</label>
-                                                <input type="text" name="phone" placeholder="Enter phone number" class="form-control" >
+                                                <input type="text" name="phone" value="<?php echo $update['phone_num']?>" placeholder="Enter phone number" class="form-control" >
                                                 <label for="" style="color: rgb(133, 128, 128);">sample: 09432219155</label>
                                             </div>
                                         </div>
@@ -158,7 +163,7 @@
                                         <div class="row form-group">
                                             <div class="col col-md-12">
                                                 <label class=" form-control-label">Username</label>
-                                                <input type="text" name="username" placeholder="Enter user name" require="required" class="form-control">
+                                                <input type="text" name="username" value="<?php echo $update['username']?>" placeholder="Enter user name" require="required" class="form-control">
                                             </div>
                                         </div>
                                         <!-- account type -->
@@ -166,7 +171,7 @@
                                             <div class="col col-md-12">
                                                 <label class=" form-control-label">Account Type</label>
                                                 <select name="act_type" id="select" class="form-control">
-                                                    <option name="act_type" hidden>Please select</option>
+                                                    <option  hidden>Please select</option>
                                                     <option name="act_type" value="Admin">Admin</option>
                                                     <option name="act_type" value="Employee">Employee</option>
                                                 </select>
