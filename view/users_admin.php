@@ -1,7 +1,7 @@
 <?php
 include '../model/dbconn.php';
 
-$all_account_employee = all_employee();
+$view_account = view_account();
 ?>
 
 <!DOCTYPE html>
@@ -122,7 +122,7 @@ $all_account_employee = all_employee();
                                 <!-- <table class="table table-borderless table-striped table-earning  mydatatable"> -->
                                     <thead>
                                         <tr>
-                                            <th hidden>ID</th>
+                                            <th>ID</th>
                                             <th>NAME</th>
                                             <th>Phone</th>
                                             <th>username</th>
@@ -132,22 +132,29 @@ $all_account_employee = all_employee();
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <?php foreach($all_account_employee as $emp) 
+                                    <?php foreach($view_account as $emp) 
                                         {?>
                                         <tr class="tr-shadow">
-                                            <td hidden><?php echo $emp['id'] ?></td>
+                                            <td ><?php echo $emp['id_acct'] ?></td>
                                             <td><?php echo $emp['fname'] ?>&nbsp;<?php echo $emp['lname'] ?></td>
                                             <!-- <td><?php echo $emp['lname'] ?></td> -->
-                                            <td><?php echo $emp['phone_num'] ?></td>
+                                            <td><?php echo $emp['phone'] ?></td>
                                             <td><?php echo $emp['username'] ?></td>
-                                            <td><?php echo $emp['account_type'] ?></td>
+                                            <td><?php echo $emp['acct_type'] ?></td>
                                             <td><?php echo $emp['status'] ?></td>
                                             <td>
-                                            <a href="view_employee.php?id=<?php echo $emp['id']?>">
-                                                <button type="submit" class="btn btn-primary btn-sm">View</button>
+                                            <a href="id_employee.php?id=<?php echo $emp['id_acct']?>" target="_blank">
+                                                <button type="submit" class="btn btn-info btn-sm">ID</button>
+                                            </a>
+                                            <a href="update_employee.php?id=<?php echo $emp['id_acct']?>">
+                                                <button type="submit" class="btn btn-primary btn-sm">Edit</button>
+                                            </a>
+                                            <a href="../controller/delete_account.php?id=<?php echo $emp['id_acct']?>">
+                                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                                             </a>
 
-                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+
+                                            <!-- <button type="submit" class="btn btn-danger btn-sm">Delete</button> -->
                                             </td>
                                         </tr>
                                     <?php } ?>

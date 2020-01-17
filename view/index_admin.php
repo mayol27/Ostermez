@@ -1,3 +1,8 @@
+<?php
+include '../model/dbconn.php';
+
+$count_employee = count_employee();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -72,8 +77,8 @@
                     <div class="row">
                         <div class="col-md-6 col-lg-3">
                             <div class="statistic__item statistic__item--green">
-                                <h2 class="number">10,368</h2>
-                                <span class="desc">Users</span>
+                                <h2 class="number"><?php echo $count_employee['accountCount']; ?></h2>
+                                <span class="desc">Employees</span>
                                 <div class="icon">
                                     <i style="color: white" class="zmdi zmdi-account-o"></i>
                                 </div>

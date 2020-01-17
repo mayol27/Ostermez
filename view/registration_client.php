@@ -28,32 +28,14 @@
                                     <form action="" method="post" class="form-horizontal">
                                         <h3>Registration</h3>
                                         <hr>
-                                        <div class="row form-group ">
-                                            <div class="col col-md-12 d-flex justify-content-center">
-                                                <div id="my_camera" ></div>
-                                                
-                                            </div>
-                                            <br> <br>
-                                            <div class="col col-md-12 d-flex justify-content-center">
-                                                
-                                                <input class='btn btn-success' type='button' value="Take Snapshot" onClick="take_snapshot()">
-					                            <input class='btn btn-success' type='button' value="Save Snapshot" onClick="saveSnap()">
-                                            </div>
-                                        </div>
                                         <div class="row form-group">
                                             <div class="col col-md-6">
                                                 <label for="hf-email" class=" form-control-label">First Name</label>
-                                                <input type="text" name="c_fname" placeholder="Enter first name" class="form-control">
+                                                <input type="text" name="c_fname" placeholder="Enter First Name" class="form-control">
                                             </div>
                                             <div class="col col-md-6">
                                                 <label for="hf-email" class=" form-control-label">Last Name</label>
-                                                <input type="text" name="c_lname" placeholder="Enter last name" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="row form-group">
-                                            <div class="col col-md-12">
-                                                <label for="hf-password" class=" form-control-label">Phone</label>
-                                                <input type="password" name="c_phone" placeholder="Enter Phone Number..." class="form-control">
+                                                <input type="text" name="c_lname" placeholder="Enter Last Name" class="form-control">
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -62,26 +44,34 @@
                                                 <input type="password" name="address" placeholder="Enter Address..." class="form-control">
                                             </div>
                                         </div>
+
                                         <div class="row form-group">
-                                            <div class="col col-md-12">
+                                            <div class="col col-md-6">
+                                                <label for="hf-password" class=" form-control-label">Phone</label>
+                                                <input type="password" name="c_phone" placeholder="Enter Phone Number..." class="form-control">
+                                            </div>
+                                            <div class="col col-md-6">
                                                 <label for="hf-password" class=" form-control-label">Department</label>
-                                                <select name="select" id="select" class="form-control">
+                                                <select name="price" id="department" onchange = "showprice()" class="form-control">
                                                     <option hidden>Please select department</option>
-                                                    <option value="1">Option #1</option>
-                                                    <option value="2">Option #2</option>
-                                                    <option value="3">Option #3</option>
+                                                    <option value="Class_A">Class A</option>
+                                                    <option value="Class_B">Class B</option>
+                                                    <option value="Class_C">Class C</option>
                                                 </select>
                                             </div>
-                                            </div>
+                                        </div>
                                         <div class="row form-group">
-                                            <div class="col col-md-12">
+                                            <div id="class_a" style="display: none" class="col col-md-12">
                                                 <label for="hf-password" class=" form-control-label">Payment</label>
-                                                <select name="select" id="select" class="form-control">
-                                                    <option hidden>Please select price</option>
-                                                    <option value="1">Option #1</option>
-                                                    <option value="2">Option #2</option>
-                                                    <option value="3">Option #3</option>
-                                                </select>
+                                                <input type="text" name="c_phone" value='100' disabled=""  class="form-control">
+                                            </div>
+                                            <div id="class_b" style="display: none" class="col col-md-12">
+                                                <label for="hf-password" class=" form-control-label">Payment</label>
+                                                <input type="text" name="c_phone" value='500' disabled=""  class="form-control">
+                                            </div>
+                                            <div id="class_c" style="display: none" class="col col-md-12">
+                                                <label for="hf-password" class=" form-control-label">Payment</label>
+                                                <input type="text" name="c_phone" value='700' disabled=""  class="form-control">
                                             </div>
                                         </div>
                                         <div class="row form-group p-t-30">
@@ -111,13 +101,24 @@
 
     </div>
 
-    <!-- cammera -->
-    <script type="text/javascript" src="assets/js/webcam2.min.js"></script>
-    <script src="assets/js/mycam.js"></script>
-
     <?php include 'templates/script.php'; ?>
     
 </body>
+
+<!-- hide / show -->
+<script type="text/javascript">
+    function showprice() 
+    {
+        var department = document.getElementById("department");
+        var class_a = document.getElementById("class_a");
+        var class_b = document.getElementById("class_b");
+        var class_c = document.getElementById("class_c");
+
+        class_a.style.display = department.value == "Class_A" ? "block" : "none";
+        class_b.style.display = department.value == "Class_B" ? "block" : "none";
+        class_c.style.display = department.value == "Class_C" ? "block" : "none";
+    }
+</script>
 
 </html>
 <!-- end document-->
